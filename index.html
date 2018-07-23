@@ -172,15 +172,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1、Python不需要定义变量所以不是强类型语言，又因为它不能运算所以也不是弱类型语言。后缀部分为-py"><a href="#1、Python不需要定义变量所以不是强类型语言，又因为它不能运算所以也不是弱类型语言。后缀部分为-py" class="headerlink" title="1、Python不需要定义变量所以不是强类型语言，又因为它不能运算所以也不是弱类型语言。后缀部分为.py"></a>1、Python不需要定义变量所以不是强类型语言，又因为它不能运算所以也不是弱类型语言。后缀部分为.py</h3><h3 id="2、获取关键词"><a href="#2、获取关键词" class="headerlink" title="2、获取关键词"></a>2、获取关键词</h3><p>import keyword<br>print(keyword.kwlist) </p>
-<h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><p>‘’’<br>这是多行注释，用三个单引号<br>‘’’<br>“””<br>这是多行注释，用三个单引号<br>“”” </p>
-<h3 id="4、Python提供6个标准数据类型（Object）：Nuber数值类型、String字符类型、List列表类型、Tuple元组类型、Dict字典类型、Set集合类型，Nuber和String类型的数据不可变，List、Tuple、Dict和Set类型是可变数据"><a href="#4、Python提供6个标准数据类型（Object）：Nuber数值类型、String字符类型、List列表类型、Tuple元组类型、Dict字典类型、Set集合类型，Nuber和String类型的数据不可变，List、Tuple、Dict和Set类型是可变数据" class="headerlink" title="4、Python提供6个标准数据类型（Object）：Nuber数值类型、String字符类型、List列表类型、Tuple元组类型、Dict字典类型、Set集合类型，Nuber和String类型的数据不可变，List、Tuple、Dict和Set类型是可变数据"></a>4、Python提供6个标准数据类型（Object）：Nuber数值类型、String字符类型、List列表类型、Tuple元组类型、Dict字典类型、Set集合类型，Nuber和String类型的数据不可变，List、Tuple、Dict和Set类型是可变数据</h3><h3 id="5、在Python中整数类型被指定为Integral-int-类型，整数采用的是十进制"><a href="#5、在Python中整数类型被指定为Integral-int-类型，整数采用的是十进制" class="headerlink" title="5、在Python中整数类型被指定为Integral(int)类型，整数采用的是十进制"></a>5、在Python中整数类型被指定为Integral(int)类型，整数采用的是十进制</h3><p>num1=0x7e<br>print(num1)<br>将一个整数变为其二进制、八进制、十六进制的数字字符串 关键词bin、oct、hex、int(‘数值’,进制)<br>num1=bin(5)   num2=oct(64)    num3=hex(64)   num4=int(‘0x40’,16)（16是当前进制）<br>print(num1)    print(num2)     print(num3)     print(num4)</p>
-<h3 id="6、”-d-o-X”-64-64-255-分别是输出10进制，8进制，16进制"><a href="#6、”-d-o-X”-64-64-255-分别是输出10进制，8进制，16进制" class="headerlink" title="6、”%d %o%X”%(64, 64, 255)分别是输出10进制，8进制，16进制"></a>6、”%d %o%X”%(64, 64, 255)分别是输出10进制，8进制，16进制</h3><h3 id="7、科学计数法-：3-14e2-e代表10"><a href="#7、科学计数法-：3-14e2-e代表10" class="headerlink" title="7、科学计数法 ：3.14e2   e代表10^"></a>7、科学计数法 ：3.14e2   e代表10^</h3><h3 id="8、python用反斜杠-转义字符，转义符号是右斜杠（反斜杠-不加-的转义字符只是一个普通的字母，加上-之后代表特殊含义元字符（R-r）就是字符串中的转义字符格式不进行任何转义操作的字符串，能够使转义字符失效"><a href="#8、python用反斜杠-转义字符，转义符号是右斜杠（反斜杠-不加-的转义字符只是一个普通的字母，加上-之后代表特殊含义元字符（R-r）就是字符串中的转义字符格式不进行任何转义操作的字符串，能够使转义字符失效" class="headerlink" title="8、python用反斜杠()转义字符，转义符号是右斜杠（反斜杠),不加\的转义字符只是一个普通的字母，加上\之后代表特殊含义元字符（R|r）就是字符串中的转义字符格式不进行任何转义操作的字符串，能够使转义字符失效"></a>8、python用反斜杠()转义字符，转义符号是右斜杠（反斜杠),不加\的转义字符只是一个普通的字母，加上\之后代表特殊含义元字符（R|r）就是字符串中的转义字符格式不进行任何转义操作的字符串，能够使转义字符失效</h3><p>strval=’你为什\n么不努力’    strval=r’你为什\n么不努力’<br>print(strval)                 print(strval)</p>
-<h3 id="9、List（列表）用-标识，可以随时添加和删除其中的元素。"><a href="#9、List（列表）用-标识，可以随时添加和删除其中的元素。" class="headerlink" title="9、List（列表）用 [ ] 标识，可以随时添加和删除其中的元素。"></a>9、List（列表）用 [ ] 标识，可以随时添加和删除其中的元素。</h3><p>list1=[‘tema’,4,[‘小明’,’小红’,’小刚’,’小花’],’第五组’,’python’]<br>print(list1)<br>print(type(list))<br>获取其中某个值<br>print(list1[2]<em>2)“</em>”操作符重复一个列表多次<br>print(list1[1],list1[2])单一获取<br>print(list1[0:3])截取一部分值（取前不取后）<br>list1[1]=’head’修改值<br>list1=list1+[‘happy’] 在后面增加项<br>del list1[2]删除</p>
-<h3 id="10、元组（tuple）是另一个数据类型，元组用”-”标识。内部元素用逗号隔开。但是元组不能二次赋值，相当于只读列表。"><a href="#10、元组（tuple）是另一个数据类型，元组用”-”标识。内部元素用逗号隔开。但是元组不能二次赋值，相当于只读列表。" class="headerlink" title="10、元组（tuple）是另一个数据类型，元组用”()”标识。内部元素用逗号隔开。但是元组不能二次赋值，相当于只读列表。"></a>10、元组（tuple）是另一个数据类型，元组用”()”标识。内部元素用逗号隔开。但是元组不能二次赋值，相当于只读列表。</h3><p>tuple1=(1,2,3,4)<br>print(tuple1[1])单一获取值<br>print(tuple1)<br>print(type(tuple1))</p>
-<h3 id="11、字典-dictionary-是python中灵活的内置数据结构类型，字典是无序的对象集合。字典当中的元素是通过键来存取的，而不是通过偏移存取。"><a href="#11、字典-dictionary-是python中灵活的内置数据结构类型，字典是无序的对象集合。字典当中的元素是通过键来存取的，而不是通过偏移存取。" class="headerlink" title="11、字典(dictionary)是python中灵活的内置数据结构类型，字典是无序的对象集合。字典当中的元素是通过键来存取的，而不是通过偏移存取。"></a>11、字典(dictionary)是python中灵活的内置数据结构类型，字典是无序的对象集合。字典当中的元素是通过键来存取的，而不是通过偏移存取。</h3><p>键值对：字典由索引(key)和它对应的值(value)组成<br>标识符：{}<br>dic1={‘学校’:’新蓝剑’,’人数’:’40’,’内容’:’Python’,’时间’:’4个月半’}’可以和=互换<br>print(dic1)<br>print(type(dic1))<br>print(dic1[‘内容’])获取值必须通过索引(键值）<br>dic1[‘进度’]=’迅速’增加必须使用“=”<br>del dic1[‘人数’]删除<br>dic1[‘人数’]=’38’修改值</p>
-<h3 id="12、集合（set）是一个无序不重复元素的序列，可以使用-也可以使用set。集合没有标识符号，若集合中有重复的元素，输出时则自动去除。"><a href="#12、集合（set）是一个无序不重复元素的序列，可以使用-也可以使用set。集合没有标识符号，若集合中有重复的元素，输出时则自动去除。" class="headerlink" title="12、集合（set）是一个无序不重复元素的序列，可以使用{}也可以使用set。集合没有标识符号，若集合中有重复的元素，输出时则自动去除。"></a>12、集合（set）是一个无序不重复元素的序列，可以使用{}也可以使用set。集合没有标识符号，若集合中有重复的元素，输出时则自动去除。</h3><p>set1={‘苹果’,’oppo’,’华为’,’小米’}<br>print(set1)<br>print(type(set1))<br>结果无序输出结果（因为输出无序，所以不能通过下标获取值）<br>{‘oppo’, ‘苹果’, ‘华为’, ‘小米’} {‘华为’, ‘小米’, ‘苹果’, ‘oppo’}<br>去重复功能<br>set1={‘苹果’,’oppo’,’华为’,’小米’,’oppo’,’华为’,’小米’}<br>print(set1)<br>输出结果<br>{‘苹果’, ‘oppo’, ‘华为’, ‘小米’}</p>
-
+        <p>类型转换<br>
+        
+          <a class="article-more-a" href="/2018/07/20/Python1/#more">more >></a>
+        
       
 
       
@@ -253,23 +248,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>从思考以后的路到做出决定来新蓝剑学习Python，我前前后后足足考虑了两个多月。这对于我来说不是一个很容易的事情，因为这个决定关系到大学毕业以后两年的路到底怎么来走，现在迈出了第一步的我感觉一身轻松，我的前方只有一条路可以走了，那就是尽自己的努力前进，我以后会会将学习进度上传，与大家一起进步。</p>
-<h2 id="Python的发展历程"><a href="#Python的发展历程" class="headerlink" title="Python的发展历程"></a>Python的发展历程</h2><p>Python是一种简单易学，功能强大的编程语言。它有高效率的高层数据结构，能够简单、有效地实现面向对象编程。<br>Python语法简单，支持动态输入，是解释型语言。在大多数平台上，对于众多领域，Python都是一个理想的开发语言，特别适合于应用程序的快速开发。</p>
-<h3 id="创始人"><a href="#创始人" class="headerlink" title="创始人"></a>创始人</h3><p>创始人：Guido van Rossum<br>时间地点：1989年圣诞节期间在阿姆斯特丹创造<br>名字来源： 大蟒蛇飞行马戏团的爱好者<br>Python是谷歌三大官方语言之一，做人工只能很方便<br>目前Guido van Rossum在Google工作，主要从事GAE/Python3.x方面的研究。<br>Rossum是数学和计算机双硕士</p>
-<h3 id="Python面世"><a href="#Python面世" class="headerlink" title="Python面世"></a>Python面世</h3><p>Python 2.0于2000年10月16日发布，主要实现了完整的垃圾回收，并且支持Unicode。<br>Python 3.0于2008年12月3日发布，此版不完全兼容之前的Python源代码。</p>
-<h2 id="Python的优点"><a href="#Python的优点" class="headerlink" title="Python的优点"></a>Python的优点</h2><p>简单，易学<br>开发速度快<br>免费，开源 — Python的使用和分发是完全免费的。<br>可升级 — Python提供了基本的开发模块，你可以在它上面开发你的软件，而且当这些需要扩展和增长时，Python的可插入性和模块化结构能使你的项目生机盎然并易于管理。<br>解释性 — Python编写的程序无需编译，可直接从源代码运行程序。<br>易维护 — 几个月后阅读自己的代码，不会云里雾里。<br>高层语言（高级语言）<br>可移植性— 由于它的开源本质，Python已经被移植在许多平台上。<br>可扩展性<br>可嵌入性（胶水语言）<br>面向对象 — Python即支持面向过程的编程也支持面向对象的编程。在“面向过程”的语言中，程序是由过程或仅仅是可重用代码的函数构建起来的。在“面向对象”的语言中，程序是由数据和功能组合而成的对象构建起来的。<br>丰富的库 — Python标准库庞大。可帮助处理各种工作，包括正则表达式、文档生成、单元测试、线程、数据库、网页浏览器、CGI、FTP、电子邮件、XML、XML-RPC、HTML、WAV文件、密码系统、GUI（图形用户界面）、Tk和其他与系统有关的操作</p>
-<h2 id="Python的劣势"><a href="#Python的劣势" class="headerlink" title="Python的劣势"></a>Python的劣势</h2><p>运行速度慢<br>国内市场小<br>中文资料匮乏<br>构架选择太多（框架）</p>
-<h2 id="为什么使用Python"><a href="#为什么使用Python" class="headerlink" title="为什么使用Python"></a>为什么使用Python</h2><h3 id="人心所向"><a href="#人心所向" class="headerlink" title="人心所向"></a>人心所向</h3><p>Packt Publishing是世界上关于编程方面最大的出版商，它在2016年对11000名访客进行了调查，调查内容包括开发者使用的编程语言、喜欢的框架、薪酬信息等几个方面。调查显示，Python和JavaScript是当今最流行的编程语言，而Java紧随其后，排名第三。</p>
-<h3 id="官方推崇"><a href="#官方推崇" class="headerlink" title="官方推崇"></a>官方推崇</h3><p>2011年1月，Python被TIOBE编程语言排行榜评为2010年度语言。<br>最近几年Python变得越来越流行，在2017年TIOBE编程语言排行榜中，Python成为最受欢迎的开发语言。</p>
-<h2 id="Python可以做些什么-运用领域"><a href="#Python可以做些什么-运用领域" class="headerlink" title="Python可以做些什么-运用领域"></a>Python可以做些什么-运用领域</h2><p>桌面GUI软件开发(wxPython, PyQT…)<br>网络应用开发(内置模块, Twistd, Stackless…)<br>2/3D图形处理,游戏开发 (PIL, pyGame…)<br>文档处理,科学计算(moinmoin, numpy…)<br>Web应用开发(Flask, Django,Z,OPEQuixote…)<br>移动设备应用开发(PyS60…)<br>数据库开发(支持SQL和NOSQL, ZODB，Gadfly…)<br>嵌入其它应用(嵌入C/C++, delphi, 调用DLL…)</p>
-<h2 id="Python和其他语言的比较"><a href="#Python和其他语言的比较" class="headerlink" title="Python和其他语言的比较"></a>Python和其他语言的比较</h2><h3 id="Python-VS-C："><a href="#Python-VS-C：" class="headerlink" title="Python VS C："></a>Python VS C：</h3><p>Python是动态编译语言，C 是静态编辑语言 。<br>C中内容管理是由开发者管理，Python中内存问题由Python解释器负责。<br>Python 自带数据类型支持库。C中对于混杂数组（Python中得列表）和哈希表（Python中得字典）还未存在标准库。<br>借助Python语言提供的API，使用C或者C++来对Python进行功能性扩展。</p>
-<h3 id="Python-VS-Java-："><a href="#Python-VS-Java-：" class="headerlink" title="Python VS Java ："></a>Python VS Java ：</h3><p>Python支持面向对象&amp;函数编程方式。java支持面向对象。<br>Python比Java要简单，非常适合与构造快速原型。<br>Python和Java最适合多名程序员以渐进方式协同开发大型项目。</p>
-<h3 id="Python-VS-SHELL-命令行-："><a href="#Python-VS-SHELL-命令行-：" class="headerlink" title="Python VS SHELL(命令行)："></a>Python VS SHELL(命令行)：</h3><p>Python语法简单，可移植性好。<br>Shell代码重用读低，造成代码量大。Python可以重用代码，提倡简洁的代码设计，高级的数据库结构和模块化组建。</p>
-<h3 id="Python-VS-PHP："><a href="#Python-VS-PHP：" class="headerlink" title="Python VS PHP："></a>Python VS PHP：</h3><p>Python的可读性、可维护性比PHP好。<br>PHP这种类C的语法是以大括号划分代码块来确定程序逻辑的，而Python则采用代码缩进的形式。<br>PHP支持switch和do…while结构，而Python则不支持，python支持while语句</p>
-<h2 id="Python语言特色"><a href="#Python语言特色" class="headerlink" title="Python语言特色"></a>Python语言特色</h2><p>Python是一门解释性语言<br>Python是强类型语言还是弱类型语言？<br>Python是一门面向对象的语言</p>
-<h2 id="Python结构"><a href="#Python结构" class="headerlink" title="Python结构"></a>Python结构</h2><p>我们应该审慎地使用包和层次结构，使得项目结构保持简单。因为过深的层次结构会使得目录导航变得困难，而过平的层次结构则会使项目变得臃肿。<br>将单元测试放在包目录的外面是一个常犯的错误。这些测试实际上应该被包含在软件的子一级包中，原因如下：<br>避免被setuptools（或者其他打包的库）作为tests顶层模块自动安装。<br>便于被安装，且其他包能够利用它们构建自己的单元测试。</p>
-<h2 id="编码风格"><a href="#编码风格" class="headerlink" title="编码风格"></a>编码风格</h2><p>下面是应该遵守主要的规则：<br>使用space（空格）来表示缩进，而不要用tab（制表符）表示。<br>和语法相关的每一层缩进都用4个空格来表示。<br>每行的字符数不应超过79。<br>采用ASCII或UTF-8编码文件。<br>对于占据多行的长表达式来说，除了首行之外的其余各行，它都应该在通常的缩进级别之上再加4个空格。<br>文件中的函数与类之间应该用两个空行隔开。<br>不要在行尾加分号，也不要用分号将两条命令放在同一行。<br>在同一个类中，各方法之间应该用一个空行隔开。<br>在使用下标来获取列表元素、调用函数或给关键字参数赋值的时候，不要在两旁添加空格。<br>为变量赋值的时候，赋值符号的左侧和右侧应该各自写上一个空格，而且只写一个就好。PEP 8提倡采用不同的命名风格来编写Python代码中的各个部分，以便在阅读代码时可以根据这些名称看出它们在Python语言中的角色。<br>函数、变量及属性应该用小写字母来拼写，各单词之间用下划线相连，例如，lowercase_underscore。</p>
-
+        <p>Python行情<br>
+        
+          <a class="article-more-a" href="/2018/07/17/xiaomubiao/#more">more >></a>
+        
       
 
       
@@ -342,16 +324,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <p>博客自带<br>
+        
+          <a class="article-more-a" href="/2018/07/14/hello-world/#more">more >></a>
+        
       
 
       
