@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 马巍的博客，欢迎踩一下</title>
+  <title>Python日更12 | 马巍的博客，欢迎踩一下</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="马巍的博客，欢迎踩一下">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="博客园首页函数">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python日更12">
+<meta property="og:url" content="http://yoursite.com/2018/07/28/bokeyuanshouye/index.html">
 <meta property="og:site_name" content="马巍的博客，欢迎踩一下">
+<meta property="og:description" content="博客园首页函数">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-28T01:45:10.591Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="马巍的博客，欢迎踩一下">
+<meta name="twitter:title" content="Python日更12">
+<meta name="twitter:description" content="博客园首页函数">
   
     <link rel="alternative" href="/atom.xml" title="马巍的博客，欢迎踩一下" type="application/atom+xml">
   
@@ -150,36 +155,116 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-bokeyuanshouye" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Python日更12
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/28/bokeyuanshouye/" class="archive-article-date">
+
+        
+        <a href="/2018/07/28/bokeyuanshouye/" class="archive-article-date">
   	<time datetime="2018-07-28T01:38:08.377Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-28</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/28/bokeyuanshouye/">Python日更12</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>博客园首页函数<br><a id="more"></a></p>
+<p>#函数要求<br>启动程序，首页面应该显示成如下格式：</p>
+<pre><code>欢迎来到博客园首页
 
-        <div class="article-info info-on-right">
-          
+1:请登录
+
+2:请注册
+
+3:文章页面
+
+4:日记页面
+
+5:评论页面
+
+6:收藏页面
+
+7:注销
+
+8:退出程序
+</code></pre><p>2)，用户输入选项，3~6选项必须在用户登录成功之后，才能访问成功。</p>
+<p>3)，用户选择登录，用户名密码从字典中读取验证，三次机会，没成功则结束整个程  序运行，成功之后，可以选择访问3~6项，访问页面之前，必须要在打印信息，  格式为–&gt;用户:xx 在xx年xx月xx日 执行了 %s操作，访问页面时，页面内容为：欢  迎xx用户访问评论（文章，日记，收藏）页面</p>
+<p>4)，如果用户没有注册，则可以选择注册，注册成功之后，可以自动完成登录（完成自动登录+5分），然后进入首页选择。</p>
+<p>5)，注销用户是指注销用户的登录状态，使其在访问任何页面时，必须重新登录。</p>
+<p>6)，退出程序为结束整个程序运行。</p>
+<p>#个功能函数如下</p>
+<p>##登陆<br>def login(database):<br>    i=1<br>    flag=True<br>    while flag:<br>        list_keys=database.keys()<br>        number1=input(‘请输入你的用户名：’)<br>        pwod1=input(‘请输入你的密码：’)<br>        while i&lt;=2:<br>            if number1 in list_keys and pwod1==(database[number1]):<br>                print(‘登陆成功’)<br>                flag=False<br>            elif number1 not in list_keys or pwod1 not in list_values:<br>                print(‘你的用户名或密码错误你还有%d次机会了’%(3-i))<br>            i+=1<br>            break<br>        else:<br>            print(‘你的账号已锁死’)</p>
+<pre><code>else:
+    choose(database,number1)
+    return (database)
+</code></pre><p>##注册<br>def register(database):<br>    user={}<br>    number1=input(‘请输入你的用户名：’).strip()<br>    powd1=input(‘请输入你的密码：’).strip()<br>    user[number1]=powd1<br>    print(‘注册成功’)<br>    database.update(user)<br>    database = choose(database)<br>    return database</p>
+<p>##登陆或成功之后跳转到此页面<br>def choose(database,number1):<br>    import time<br>    localtime=time.localtime()<br>    a=(‘%d年%d月%d日’%(localtime.tm_year,localtime.tm_mon,localtime.tm_mday))<br>    flag=True<br>    while flag:<br>        print(‘请输入你的选项’.center(33,’<em>‘))<br>        list2=[‘文章页面’,’日记页面’,’评论页面’,’收藏页面’,’注销’,’返回’]<br>        for i,j in enumerate(list2,1):<br>            print(‘编号：%d\t栏目：%s’%(i,list2[i-1]))<br>        print(‘</em>‘*40)<br>        number2=int(input(‘请输入栏目编号进行下一步：’))<br>        if number2==1:<br>            print(‘用户:{} 在{} 执行了{}操作’.format(number1,a,’文章’))<br>            article(number1)<br>        elif number2==2:<br>            print(‘用户:{} 在{} 执行了{}操作’.format(number1,a,’日记’))<br>            diary(number1)<br>        elif number2==3:<br>            print(‘用户:{} 在{} 执行了{}操作’.format(number1,a,’评论’))<br>            comment(number1)<br>        elif number2==4:<br>            print(‘用户:{} 在{} 执行了{}操作’.format(number1,a,’收藏’))<br>            collect(number1)<br>        elif number2==5:<br>            database = login(database)<br>        elif number2==6:<br>            break</p>
+<p>##文章页面<br>def article(number1):<br>    flag=True<br>    while flag:<br>        print(‘欢迎%s用户访问评论’%(number1))<br>        flag=False</p>
+<p>##日记页面<br>def diary(number1):<br>    flag=True<br>    while flag:<br>        print(‘欢迎%s用户访问评论’%(number1))<br>        flag=False</p>
+<p>##评论页面<br>def comment(number1):<br>    flag=True<br>    while flag:<br>        print(‘欢迎%s用户访问评论’%(number1))<br>        flag=False</p>
+<p>##收藏页面<br>def collect(number1):<br>    flag=True<br>    while flag:<br>        print(‘欢迎%s用户访问评论’%(number1))<br>        flag=False</p>
+<p>##主页面<br>flag=True<br>while flag:<br>    print(‘欢迎来到博客园首页’.center(33,’*’))<br>    list1=[‘请登录’,’请注册’,’文章页面’,’日记页面’,’评论页面’,’收藏页面’,’注销’,’退出程序’]</p>
+<pre><code>#数据库（存储已注册过的账号）
+database={&apos;m155&apos;:&apos;1234&apos;,&apos;g458&apos;:&apos;1234&apos;,&apos;qwer&apos;:&apos;1234&apos;,&apos;h125&apos;:&apos;1234&apos;}
+for i,j in enumerate(list1,1):
+    print(&apos;编号：%d\t栏目：%s&apos;%(i,list1[i-1]))
+print(&apos;*&apos;*40)
+number=int(input(&apos;请输入栏目编号进行下一步：&apos;))
+if number==1:
+    login(database)
+elif number==2:
+    database = register(database)
+elif number==3:
+    print(&apos;只限登陆用户观看&apos;)
+elif number==4:
+    print(&apos;只限登陆用户观看&apos;)
+elif number==5:
+    print(&apos;只限登陆用户观看&apos;)
+elif number==6:
+    print(&apos;只限登陆用户观看&apos;)
+elif number==7:
+    print(&apos;只限登陆用户观看&apos;)
+elif number==8:
+    print(&apos;退出&apos;)
+    flag=False
+else:
+    print(&apos;你输入的有误请重新输入&apos;)
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,133 +276,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/28/bokeyuanshouye/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/20/Python1/" class="archive-article-date">
-  	<time datetime="2018-07-20T11:05:01.723Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/20/Python1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python日更1</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/20/Python1/">Python日更1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/17/xiaomubiao/" class="archive-article-date">
-  	<time datetime="2018-07-17T07:26:02.208Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-17</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/17/xiaomubiao/">学习Python第一天</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/14/hello-world/" class="archive-article-date">
-  	<time datetime="2018-07-14T08:42:12.371Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/14/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自带</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -340,8 +411,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
