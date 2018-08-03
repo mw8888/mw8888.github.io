@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>马巍的博客，欢迎踩一下</title>
+  <title>Python日更14 | 马巍的博客，欢迎踩一下</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="马巍的博客，欢迎踩一下">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="IO操作函数">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python日更14">
+<meta property="og:url" content="http://yoursite.com/2018/08/03/yong io jinxing/index.html">
 <meta property="og:site_name" content="马巍的博客，欢迎踩一下">
+<meta property="og:description" content="IO操作函数">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-03T09:51:56.196Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="马巍的博客，欢迎踩一下">
+<meta name="twitter:title" content="Python日更14">
+<meta name="twitter:description" content="IO操作函数">
   
     <link rel="alternative" href="/atom.xml" title="马巍的博客，欢迎踩一下" type="application/atom+xml">
   
@@ -150,16 +155,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-yong io jinxing" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-yong io jinxing" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/03/yong io jinxing/">Python日更14</a>
+    <h1 class="article-title" itemprop="name">
+      Python日更14
     </h1>
   
 
@@ -172,12 +175,95 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>IO操作函数<br>
-        
-          <a class="article-more-a" href="/2018/08/03/yong io jinxing/#more">more >></a>
-        
+        <p>IO操作函数<br><a id="more"></a></p>
+<h1 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h1><p>def find():<br>    flag=False</p>
+<pre><code># 获取要查询的名称
+find_name=input(&apos;输入查询的用户名:&apos;).strip().upper()
+with open(&apos;info.txt&apos;,&apos;r&apos;) as f3:
+    for line in f3:
+        if line.split()[0]==find_name:
+            flag=True
+            print(&apos;用户姓名&apos;,find_name,&apos;;工资:&apos;,line.split()[1])
+        # 判断状态，用户是否存在
+if flag==False:
+    print(&apos;用户{}没有找到&apos;.format(find_name))
+</code></pre><h1 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h1><p>def change():<br>    flag=True<br>    list1=[]<br>    dicts={}<br>    mod_info1=input(‘输入要修改的名字：’).strip().upper()<br>    while flag:<br>        with open(‘info.txt’,’r+’) as f4:<br>            for line in f4:<br>                dicts[line.split()[0]]=line.split()[1]</p>
+<pre><code>        #用户是否存在
+        if mod_info1 in dicts.keys():
+            #存在
+            mod_money=input(&apos;输入你的薪资&apos;).strip()
+            if not mod_money.isdigit():
+                print(&apos;不是一个数字&apos;)
+                break
+            else:#修改薪资
+                dicts[mod_info1]=mod_money
+                flag=False
+        else:
+            print(&apos;不存在&apos;)
+            break
+    file_cont=&apos;&apos;
+    for i,j in dicts.items():
+        file_cont+=i+&apos; &apos;+j+&apos;\n&apos;
+    changeFile=open(&apos;info.txt&apos;,&apos;w+&apos;)
+    changeFile.write(file_cont)
+    changeFile.close()
+if flag==False:
+    print(&apos;修改成功&apos;)
+</code></pre><h1 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h1><p>def add():<br>    flag=False<br>    add_info=input(‘输入添加的用户名:’).strip().upper()<br>    with open (‘info.txt’,’r’) as f1:<br>        for line in f1:<br>            if add_info==line.split()[0]:         #判断用户存在 空格分割</p>
+<pre><code>    #返回一个状态，表示用户是否存在
+    flag=True
+else:
+    continue
+</code></pre><h1 id="信息存入"><a href="#信息存入" class="headerlink" title="信息存入"></a>信息存入</h1><pre><code>if flag:
+    print(&apos;当前用户已经存在&apos;)
+else:
+    with  open (&apos;info.txt&apos;,&apos;a+&apos;) as f2:
+        money=input(&apos;输入收入:&apos;).strip()
+        if not money.isdigit:
+            print(&apos;输入格式有误&apos;)
+        else:
+            f2.write(add_info+&apos;\t&apos;+money+&apos;\n&apos;)
+            print(&apos;添加成功&apos;)
+</code></pre><h1 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h1><p>def delete():<br>    flag=True<br>    list1=[]<br>    dicts={}<br>    mod_info1=input(‘输入要删除的名字：’).strip().upper()<br>    while flag:<br>        with open(‘info.txt’,’r+’) as f4:<br>            for line in f4:<br>                dicts[line.split()[0]]=line.split()[1]<br>            if mod_info1 in dicts.keys():<br>                dicts.pop(mod_info1)<br>                flag=False<br>            else:<br>                print(‘不存在’)<br>                break<br>        file_cont=’’<br>        for i,j in dicts.items():<br>            file_cont+=i+’ ‘+j+’\n’<br>        changeFile=open(‘info.txt’,’w+’)<br>        changeFile.write(file_cont)<br>        changeFile.close()<br>    if flag==False:<br>        print(‘删除成功’)</p>
+<h1 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h1><p>def quit():<br>    exit()</p>
+<h1 id="主程序"><a href="#主程序" class="headerlink" title="主程序"></a>主程序</h1><p>def main():<br>    menu={<br>        ‘1’:’find’,<br>        ‘2’:’change’,<br>        ‘3’:’add’,<br>        ‘4’:’delete’,<br>        ‘5’:’quit’<br>    }</p>
+<pre><code>while True:
+    print(&apos;&apos;&apos;
+    请选择:
+    1.查询用户
+    2.修改用户
+    3.增加用户
+    4.删除用户
+    5.退出   
+    &apos;&apos;&apos;)
+    choice=input(&apos;请输入选项：&apos;).strip()
+    if choice in menu.keys():
+        eval(menu[choice])()
+</code></pre><p>if <strong>name</strong>==’<strong>main</strong>‘:<br>    main()</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -197,16 +283,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/03/yong io jinxing/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/03/yong io jinxing/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/28/Rose/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python日更13</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -221,393 +366,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Rose" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/28/Rose/">Python日更13</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/28/Rose/" class="archive-article-date">
-  	<time datetime="2018-07-28T02:34:14.340Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一朵玫瑰送给自己<br>
-        
-          <a class="article-more-a" href="/2018/07/28/Rose/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/28/Rose/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#查询"><span class="toc-number">1.</span> <span class="toc-text">查询</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改"><span class="toc-number">2.</span> <span class="toc-text">修改</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加"><span class="toc-number">3.</span> <span class="toc-text">添加</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息存入"><span class="toc-number">4.</span> <span class="toc-text">信息存入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#删除"><span class="toc-number">5.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#退出"><span class="toc-number">6.</span> <span class="toc-text">退出</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#主程序"><span class="toc-number">7.</span> <span class="toc-text">主程序</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
   
-    <article id="post-bokeyuanshouye" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/28/bokeyuanshouye/">Python日更12</a>
-    </h1>
   
 
-        
-        <a href="/2018/07/28/bokeyuanshouye/" class="archive-article-date">
-  	<time datetime="2018-07-28T01:38:08.377Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>博客园首页函数<br>
-        
-          <a class="article-more-a" href="/2018/07/28/bokeyuanshouye/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/28/bokeyuanshouye/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Python1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/20/Python1/">Python日更1</a>
-    </h1>
   
 
-        
-        <a href="/2018/07/20/Python1/" class="archive-article-date">
-  	<time datetime="2018-07-20T11:05:01.723Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>类型转换<br>
-        
-          <a class="article-more-a" href="/2018/07/20/Python1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/20/Python1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-xiaomubiao" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/17/xiaomubiao/">学习Python第一天</a>
-    </h1>
   
 
-        
-        <a href="/2018/07/17/xiaomubiao/" class="archive-article-date">
-  	<time datetime="2018-07-17T07:26:02.208Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Python行情<br>
-        
-          <a class="article-more-a" href="/2018/07/17/xiaomubiao/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/17/xiaomubiao/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/14/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/14/hello-world/" class="archive-article-date">
-  	<time datetime="2018-07-14T08:42:12.371Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>博客自带<br>
-        
-          <a class="article-more-a" href="/2018/07/14/hello-world/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自带</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/14/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -630,8 +414,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
