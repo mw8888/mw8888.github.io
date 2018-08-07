@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/8 | 马巍的博客，欢迎踩一下</title>
+  <title>Python日更15 | 马巍的博客，欢迎踩一下</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="马巍的博客，欢迎踩一下">
-<meta property="og:url" content="http://yoursite.com/archives/2018/08/index.html">
+  <meta name="description" content="面向对象">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python日更15">
+<meta property="og:url" content="http://yoursite.com/2018/08/07/mianxiangduixiang/index.html">
 <meta property="og:site_name" content="马巍的博客，欢迎踩一下">
+<meta property="og:description" content="面向对象">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-07T08:44:39.556Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="马巍的博客，欢迎踩一下">
+<meta name="twitter:title" content="Python日更15">
+<meta name="twitter:description" content="面向对象">
   
     <link rel="alternative" href="/atom.xml" title="马巍的博客，欢迎踩一下" type="application/atom+xml">
   
@@ -150,36 +155,98 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-mianxiangduixiang" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Python日更15
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/07/mianxiangduixiang/" class="archive-article-date">
+
+        
+        <a href="/2018/08/07/mianxiangduixiang/" class="archive-article-date">
   	<time datetime="2018-08-07T08:41:43.806Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-07</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/07/mianxiangduixiang/">Python日更15</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>面向对象<br><a id="more"></a></p>
+<p>#需求分析<br>烧鸡翅的流程分解为：烧烤和加调料</p>
+<p>用面向对象的方式来实现，必须定义鸡翅类，有以下属性：烧烤的时间，生熟程度，调味品。以及以下方法：烧烤，添加调料</p>
+<p>烧烤时间与生熟时间的关联：</p>
+<p>0-3分钟：生的<br>3-5分钟：半生不熟<br>5-8分钟：熟了<br>大于8分钟：焦了<br>class Wing():<br>    “””烧鸡翅”””</p>
+<pre><code>def __init__(self):
+    print(&apos;----烧鸡翅，我最中意食-----&apos;)
+    self.cookedLevel = 0  # 烧鸡翅的时间
+    self.cookedString = &apos;生的&apos;  # 生熟程度
+    self.condiments = []  # 调味
+    print(&apos;刚买的鸡翅是生的，没有调料&apos;)
 
-        <div class="article-info info-on-right">
-          
+def cook(self, time):
+    self.cookedLevel += time
+    if self.cookedLevel &gt; 8:
+        self.cookedString = &apos;烧焦了&apos;
+    elif self.cookedLevel &gt; 5:
+        self.cookedString = &apos;烧好了&apos;
+    elif self.cookedLevel &gt; 3:
+        self.cookedString = &apos;半生不熟&apos;
+    else:
+        self.cookedString = &apos;生的&apos;
+
+def addCondiments(self, condiments):
+    print(&apos;---添加调料---&apos;)
+    self.condiments.append(condiments)
+
+def __str__(self):
+    print(&apos;----烧了%s分钟---&apos; % self.cookedLevel)
+    msg = &apos;鸡翅的生熟度：&apos; + self.cookedString
+    if len(self.condiments) &gt; 0:
+        msg = msg + &quot;\n调料有：&quot;
+        for temp in self.condiments:
+            msg = msg + temp + &apos;, &apos;
+        msg = msg.rstrip(&apos;, &apos;)
+    return msg
+</code></pre><p>wing = Wing()</p>
+<p>print(‘—-开始烧鸡翅—-‘)<br>wing.cook(4)<br>print(wing)</p>
+<p>wing.addCondiments(‘酱油’)</p>
+<p>wing.cook(3)<br>print(wing)</p>
+<p>wing.addCondiments(‘芝麻’)<br>wing.cook(1)<br>print(wing)</p>
+<p>wing.cook(2)<br>print(wing)</p>
+<p>作者：章鱼喵_<br>链接：<a href="https://www.jianshu.com/p/1b243319c002" target="_blank" rel="noopener">https://www.jianshu.com/p/1b243319c002</a><br>來源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,57 +258,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/07/mianxiangduixiang/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/03/yong io jinxing/" class="archive-article-date">
-  	<time datetime="2018-08-03T09:49:21.918Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/03/yong io jinxing/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python日更14</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/03/yong io jinxing/">Python日更14</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -264,8 +393,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
